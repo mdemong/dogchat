@@ -1,0 +1,15 @@
+{
+  "name": "dogchat",
+  "version": "1.0.0",
+  "description": "chatroom except everyone else is a dog",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "type": "module",
+  "author": "mdemo",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
