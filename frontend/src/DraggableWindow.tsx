@@ -1,12 +1,16 @@
+import { useState } from "react";
+import Draggable from "react-draggable";
 import { Button, Window, WindowContent, WindowHeader } from "react95";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
   padding: 5rem;
   background: ${({ theme }) => theme.desktopBackground};
-   height: 100vh;
-   box-sizing: border-box;
+  height: 100vh;
+  box-sizing: border-box;
   .window-title {
+    cursor: grab;
+    user-select: none;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -18,6 +22,9 @@ const Wrapper = styled.div`
     margin-left: -1px;
     margin-top: -1px;
     position: relative;
+  }
+  #close-button {
+    cursor: not-allowed;
   }
   .window {
     width: 400px;
@@ -36,12 +43,14 @@ const Wrapper = styled.div`
 `;
 
 export const DraggableWindow = () => {
-    return <>
-    <Wrapper>
+  return (
+    <>
+      <Wrapper className="wrapper">
+        <Draggable bounds=".wrapper" handle=".window-title">
           <Window className="window">
             <WindowHeader className="window-title">
               <span>DogChat</span>
-              <Button disabled>
+              <Button disabled id="close-button">
                 <img className="close-icon" src="src/assets/close-window-peggysPastels.png"></img>
               </Button>
             </WindowHeader>
@@ -49,6 +58,8 @@ export const DraggableWindow = () => {
               <p>what a cool window</p>
             </WindowContent>
           </Window>
-        </Wrapper>
-        </>
-}
+        </Draggable>
+      </Wrapper>
+    </>
+  );
+};
