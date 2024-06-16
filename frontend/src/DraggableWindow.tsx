@@ -42,20 +42,20 @@ const Wrapper = styled.div`
   }
 `;
 
-export const DraggableWindow = () => {
+export const DraggableWindow = ({children} : React.PropsWithChildren) => {
   return (
     <>
       <Wrapper className="wrapper">
         <Draggable bounds=".wrapper" handle=".window-title">
           <Window className="window">
             <WindowHeader className="window-title">
-              <span>DogChat</span>
+              <h1>DogChat</h1>
               <Button disabled id="close-button">
                 <img className="close-icon" src="src/assets/close-window-peggysPastels.png"></img>
               </Button>
             </WindowHeader>
             <WindowContent>
-              <p>what a cool window</p>
+              {children}
             </WindowContent>
           </Window>
         </Draggable>
