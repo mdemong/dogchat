@@ -4,7 +4,7 @@ import { Button, Window, WindowContent, WindowHeader } from "react95";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
-  padding: 5rem;
+  padding: 2rem;
   background: ${({ theme }) => theme.desktopBackground};
   height: 100vh;
   box-sizing: border-box;
@@ -27,7 +27,7 @@ const Wrapper = styled.div`
     cursor: not-allowed;
   }
   .window {
-    width: 400px;
+    width: 32rem;
     min-height: 200px;
   }
   .window:nth-child(2) {
@@ -39,6 +39,11 @@ const Wrapper = styled.div`
     height: 31px;
     line-height: 31px;
     padding-left: 0.25rem;
+  }
+  @media screen and (max-width: 36rem) {
+    .window {
+      width: 100%;
+    }
   }
 `;
 
